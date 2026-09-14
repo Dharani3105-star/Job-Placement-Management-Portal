@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Applications</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>My Applications</h1>
+    <p>Track your job applications and application status</p>
+</header>
+
+<main>
+
+    {% if applications %}
+
+        {% for application in applications %}
+
+        <div class="admin-section application-card">
+
+            <h2>{{ application.job }}</h2>
+
+            <p>
+                <strong>Company:</strong>
+                {{ application.company }}
+            </p>
+
+            <p>
+                <strong>Location:</strong>
+                {{ application.location }}
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+
+                {% if application.status == "Applied" %}
+                    <span class="status applied">Applied</span>
+
+                {% elif application.status == "Shortlisted" %}
+                    <span class="status shortlisted">Shortlisted</span>
+
+                {% elif application.status == "Rejected" %}
+                    <span class="status rejected">Rejected</span>
+
+                {% else %}
+                    <span class="status">
+                        {{ application.status }}
+                    </span>
+                {% endif %}
+
+            </p>
+
+            <p>
+                <strong>Applied On:</strong>
+                {{ application.applied_at }}
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="admin-section">
+
+            <h2>No Applications Yet</h2>
+
+            <p>
+                You have not applied for any jobs yet.
+            </p>
+
+            <a href="/">
+                <button>Browse Jobs</button>
+            </a>
+
+        </div>
+
+    {% endif %}
+
+    <br>
+
+    <a href="/">
+        <button>Back to Jobs</button>
+    </a>
+
+</main>
+
+</body>
+</html>

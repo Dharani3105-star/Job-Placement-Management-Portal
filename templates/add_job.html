@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add New Job</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>Add New Job</h1>
+    <p>Create a new job or internship opportunity</p>
+</header>
+
+<main>
+
+    <div class="admin-section">
+
+        <h2>Job Information</h2>
+
+        <form method="POST">
+
+            <label>Job Title</label>
+            <input type="text"
+                   name="title"
+                   placeholder="Example: Python Developer Intern"
+                   required>
+
+            <label>Company</label>
+            <input type="text"
+                   name="company"
+                   placeholder="Example: Tech Solutions"
+                   required>
+
+            <label>Location</label>
+            <input type="text"
+                   name="location"
+                   placeholder="Example: Hyderabad"
+                   required>
+
+            <label>Job Description</label>
+            <textarea name="description"
+                      rows="5"
+                      placeholder="Enter the job description"
+                      required></textarea>
+
+            <label>Required Skills</label>
+            <input type="text"
+                   name="skills"
+                   placeholder="Example: Python, Flask, SQL"
+                   required>
+
+            <label>Eligibility</label>
+            <input type="text"
+                   name="eligibility"
+                   placeholder="Example: B.Tech / B.E students"
+                   required>
+
+            <br>
+
+            <button type="submit">
+                Add Job
+            </button>
+
+        </form>
+
+        <br>
+
+        <a href="/admin">
+            <button type="button">
+                Back to Admin Dashboard
+            </button>
+        </a>
+
+    </div>
+
+</main>
+
+</body>
+</html>

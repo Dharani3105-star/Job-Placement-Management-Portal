@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>Admin Dashboard</h1>
+    <p>Manage Student Job Applications</p>
+</header>
+
+<main>
+
+    <!-- Dashboard Statistics -->
+
+    <div class="stats-container">
+
+        <div class="stat-card">
+            <h2>{{ total_jobs }}</h2>
+            <p>Total Jobs</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>{{ total_applications }}</h2>
+            <p>Total Applications</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>{{ shortlisted }}</h2>
+            <p>Shortlisted</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>{{ rejected }}</h2>
+            <p>Rejected</p>
+        </div>
+
+    </div>
+
+
+    <!-- All Applications -->
+
+    <div class="admin-section">
+
+        <h2>All Applications</h2>
+
+        <form method="GET" action="/admin" class="search-form">
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Search by student, email, job or company..."
+                value="{{ request.args.get('search', '') }}"
+            >
+
+            <select name="status">
+
+                <option value="All"
+                    {% if request.args.get('status', 'All') == 'All' %}selected{% endif %}>
+                    All Statuses
+                </option>
+
+                <option value="Applied"
+                    {% if request.args.get('status') == 'Applied' %}selected{% endif %}>
+                    Applied
+                </option>
+
+                <option value="Shortlisted"
+                    {% if request.args.get('status') == 'Shortlisted' %}selected{% endif %}>
+                    Shortlisted
+                </option>
+
+                <option value="Rejected"
+                    {% if request.args.get('status') == 'Rejected' %}selected{% endif %}>
+                    Rejected
+                </option>
+
+            </select>
+
+            <button type="submit">Search</button>
+
+        </form>
+
+
+        {% if applications %}
+
+        <table class="admin-table">
+
+            <tr>
+                <th>Student</th>
+                <th>Email</th>
+                <th>Job</th>
+                <th>Company</th>
+                <th>Status</th>
+                <th>Resume</th>
+            </tr>
+
+            {% for application in applications %}
+
+            <tr>
+
+                <td>{{ application.name }}</td>
+
+                <td>{{ application.email }}</td>
+
+                <td>{{ application.job }}</td>
+
+                <td>{{ application.company }}</td>
+
+
+                <!-- Status -->
+
+                <td>
+
+                    <form method="POST"
+                          action="/update_status/{{ application.id }}">
+
+                        <select name="status">
+
+                            <option value="Applied"
+                                {% if application.status == "Applied" %}selected{% endif %}>
+                                Applied
+                            </option>
+
+                            <option value="Shortlisted"
+                                {% if application.status == "Shortlisted" %}selected{% endif %}>
+                                Shortlisted
+                            </option>
+
+                            <option value="Rejected"
+                                {% if application.status == "Rejected" %}selected{% endif %}>
+                                Rejected
+                            </option>
+
+                        </select>
+
+                        <button type="submit">Update</button>
+
+                    </form>
+
+                </td>
+
+
+                <!-- Resume -->
+
+                <td>
+
+                    {% if application.resume %}
+
+                        <a href="/resume/{{ application.resume }}"
+                           target="_blank">
+
+                            <button type="button">
+                                View Resume
+                            </button>
+
+                        </a>
+
+                    {% else %}
+
+                        No Resume
+
+                    {% endif %}
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+        {% else %}
+
+            <p>No applications available.</p>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- Job Management -->
+
+    <div class="admin-section">
+
+        <h2>Job Management</h2>
+
+        {% if jobs %}
+
+        <table class="admin-table">
+
+            <tr>
+                <th>Job Title</th>
+                <th>Company</th>
+                <th>Location</th>
+                <th>Actions</th>
+            </tr>
+
+            {% for job in jobs %}
+
+            <tr>
+
+                <td>{{ job.title }}</td>
+
+                <td>{{ job.company }}</td>
+
+                <td>{{ job.location }}</td>
+
+                <td>
+
+                    <div class="admin-actions">
+
+                        <a href="/edit_job/{{ job.id }}">
+                            <button type="button">Edit</button>
+                        </a>
+
+                        <a href="/delete_job/{{ job.id }}">
+                            <button type="button">Delete</button>
+                        </a>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+        {% else %}
+
+            <p>No jobs available.</p>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- Admin Buttons -->
+
+    <br>
+
+    <a href="/add_job">
+        <button>Add New Job</button>
+    </a>
+
+    <br><br>
+
+    <a href="/">
+        <button>Back to Portal</button>
+    </a>
+
+    <br><br>
+
+    <a href="/admin_logout">
+        <button>Admin Logout</button>
+    </a>
+
+</main>
+
+
+<!-- Registered Students -->
+
+<div class="admin-section">
+
+    <h2>Registered Students</h2>
+
+    {% if students %}
+
+    <table class="admin-table">
+
+        <tr>
+            <th>ID</th>
+            <th>Student Name</th>
+            <th>Email</th>
+        </tr>
+
+        {% for student in students %}
+
+        <tr>
+
+            <td>{{ student.id }}</td>
+
+            <td>{{ student.name }}</td>
+
+            <td>{{ student.email }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    {% else %}
+
+        <p>No students registered yet.</p>
+
+    {% endif %}
+
+</div>
+
+<br>
+
+</body>
+</html>

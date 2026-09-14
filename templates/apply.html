@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apply for Job</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>Job Application</h1>
+    <p>Apply for your desired opportunity</p>
+</header>
+
+<main>
+    <div class="job-card">
+
+        <h2>{{ job.title }}</h2>
+
+        <p><strong>Company:</strong> {{ job.company }}</p>
+        <p><strong>Location:</strong> {{ job.location }}</p>
+
+        <p>
+            <strong>Applicant:</strong> {{ session["student"] }}
+        </p>
+
+        <p>
+            <strong>Email:</strong> {{ session["student_email"] }}
+        </p>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <p>
+                <label><strong>Upload Resume (PDF)</strong></label>
+            </p>
+
+            <input
+                type="file"
+                name="resume"
+                accept=".pdf"
+                required
+            >
+
+            <br><br>
+
+            <button type="submit">Submit Application</button>
+
+        </form>
+
+        <br>
+
+        <a href="/">
+            <button type="button">Back to Jobs</button>
+        </a>
+
+    </div>
+</main>
+
+</body>
+</html>

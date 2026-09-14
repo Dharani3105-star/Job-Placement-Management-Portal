@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>Student Dashboard</h1>
+    <p>Welcome to your placement dashboard</p>
+</header>
+
+<main>
+
+    <!-- Student Information -->
+
+    <div class="job-card">
+
+        <h2>Welcome, {{ student }}</h2>
+
+        <p>
+            <strong>Email:</strong> {{ email }}
+        </p>
+
+    </div>
+
+
+    <!-- Application Statistics -->
+
+    <div class="stats-container">
+
+        <div class="stat-card">
+            <h2>{{ total_applications }}</h2>
+            <p>Total Applications</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>{{ shortlisted }}</h2>
+            <p>Shortlisted</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>{{ rejected }}</h2>
+            <p>Rejected</p>
+        </div>
+
+    </div>
+
+
+    <!-- Recent Applications -->
+
+    <div class="job-card">
+
+        <h2>Recent Applications</h2>
+
+        {% if applications %}
+
+        <table>
+
+            <tr>
+                <th>Job</th>
+                <th>Company</th>
+                <th>Status</th>
+                <th>Applied On</th>
+            </tr>
+
+            {% for application in applications[:5] %}
+
+            <tr>
+
+                <td>{{ application.job }}</td>
+
+                <td>{{ application.company }}</td>
+
+                <td>
+
+                    {% if application.status == "Applied" %}
+
+                        <span class="status applied">Applied</span>
+
+                    {% elif application.status == "Shortlisted" %}
+
+                        <span class="status shortlisted">Shortlisted</span>
+
+                    {% elif application.status == "Rejected" %}
+
+                        <span class="status rejected">Rejected</span>
+
+                    {% else %}
+
+                        <span class="status">
+                            {{ application.status }}
+                        </span>
+
+                    {% endif %}
+
+                </td>
+
+                <td>{{ application.applied_at }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+        {% else %}
+
+        <p>You have not applied for any jobs yet.</p>
+
+        {% endif %}
+
+    </div>
+
+
+    <br>
+
+    <a href="/">
+        <button>Browse Jobs</button>
+    </a>
+
+    <br><br>
+
+    <a href="/applications">
+        <button>View All Applications</button>
+    </a>
+
+    <br><br>
+
+    <a href="/logout">
+        <button>Logout</button>
+    </a>
+
+</main>
+
+</body>
+</html>

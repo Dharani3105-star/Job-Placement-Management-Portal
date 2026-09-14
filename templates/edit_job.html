@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Job</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>Edit Job</h1>
+    <p>Update job and internship opportunity</p>
+</header>
+
+<main>
+
+    <div class="admin-section">
+
+        <h2>Edit Job Information</h2>
+
+        <form method="POST">
+
+            <label>Job Title</label>
+            <input type="text"
+                   name="title"
+                   value="{{ job.title }}"
+                   required>
+
+            <label>Company</label>
+            <input type="text"
+                   name="company"
+                   value="{{ job.company }}"
+                   required>
+
+            <label>Location</label>
+            <input type="text"
+                   name="location"
+                   value="{{ job.location }}"
+                   required>
+
+            <label>Job Description</label>
+            <textarea name="description"
+                      rows="5"
+                      required>{{ job.description or "" }}</textarea>
+
+            <label>Required Skills</label>
+            <input type="text"
+                   name="skills"
+                   value="{{ job.skills or '' }}"
+                   required>
+
+            <label>Eligibility</label>
+            <input type="text"
+                   name="eligibility"
+                   value="{{ job.eligibility or '' }}"
+                   required>
+
+            <br>
+
+            <button type="submit">
+                Update Job
+            </button>
+
+        </form>
+
+        <br>
+
+        <a href="/admin">
+            <button type="button">
+                Back to Admin Dashboard
+            </button>
+        </a>
+
+    </div>
+
+</main>
+
+</body>
+</html>

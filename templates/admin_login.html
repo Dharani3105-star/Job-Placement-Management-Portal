@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>Job & Placement Portal</h1>
+    <p>Administrator Login</p>
+</header>
+
+<main>
+
+    <div class="auth-card">
+
+        <h2>Admin Login</h2>
+
+        <p>Login to manage jobs and student applications</p>
+
+        <form method="POST">
+
+            <label>Admin Email</label>
+            <input type="email"
+                   name="email"
+                   placeholder="Enter admin email"
+                   required>
+
+            <label>Password</label>
+            <input type="password"
+                   name="password"
+                   placeholder="Enter admin password"
+                   required>
+
+            <button type="submit">
+                Login as Admin
+            </button>
+
+        </form>
+
+        <p class="auth-link">
+            <a href="/login">Student Login</a>
+        </p>
+
+    </div>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ job.title }} - Job Details</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>Job Details</h1>
+    <p>View complete opportunity information</p>
+</header>
+
+<main>
+
+    <div class="admin-section job-details-card">
+
+        <h2>{{ job.title }}</h2>
+
+        <p>
+            <strong>Company:</strong>
+            {{ job.company }}
+        </p>
+
+        <p>
+            <strong>Location:</strong>
+            {{ job.location }}
+        </p>
+
+        <hr>
+
+        <h3>Job Description</h3>
+        <p>{{ job.description }}</p>
+
+        <h3>Required Skills</h3>
+        <p>{{ job.skills }}</p>
+
+        <h3>Eligibility</h3>
+        <p>{{ job.eligibility }}</p>
+
+        <br>
+
+        <a href="/apply/{{ job.id }}">
+            <button>Apply Now</button>
+        </a>
+
+        <a href="/">
+            <button type="button">Back to Jobs</button>
+        </a>
+
+    </div>
+
+</main>
+
+</body>
+</html>

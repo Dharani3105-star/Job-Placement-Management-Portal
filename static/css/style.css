@@ -1,0 +1,550 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f6f8;
+    color: #333;
+}
+
+header {
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 35px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+main {
+    width: 85%;
+    max-width: 1000px;
+    margin: 35px auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.jobs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.job-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.job-card h3 {
+    color: #2563eb;
+}
+
+button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.view-btn {
+    display: block;
+    margin: 30px auto;
+}
+
+.stats-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background: white;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.stat-card h2 {
+    font-size: 32px;
+    margin: 0 0 10px;
+}
+
+.stat-card p {
+    margin: 0;
+    font-weight: bold;
+}
+.status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.status.applied {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status.shortlisted {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status.rejected {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+/* Professional Navigation Bar */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: #1f2937;
+    color: white;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.nav-brand {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.nav-links span {
+    font-weight: bold;
+}
+/* Professional Job Cards */
+
+.jobs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.job-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.job-card h3 {
+    margin-top: 0;
+    font-size: 21px;
+}
+
+.job-card p {
+    line-height: 1.6;
+}
+
+.job-card button {
+    margin-top: 10px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.job-card button:hover {
+    opacity: 0.85;
+}
+/* Professional Search Bar */
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 25px auto;
+    max-width: 700px;
+}
+
+.search-form input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+}
+
+.search-form input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 5px rgba(37, 99, 235, 0.25);
+}
+
+.search-form button {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.search-form button:hover {
+    opacity: 0.85;
+}
+/* Professional Dashboard Statistics */
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 30px auto;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    width: 220px;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card h2 {
+    font-size: 36px;
+    margin: 0 0 10px;
+}
+
+.stat-card p {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+/* Professional Application Status */
+
+.status {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.status.applied {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status.shortlisted {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status.rejected {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+/* Professional Admin Dashboard */
+
+.admin-section {
+    background: white;
+    padding: 25px;
+    margin: 30px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    max-width: 1100px;
+}
+
+.admin-section h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.admin-table th {
+    font-weight: bold;
+}
+
+.admin-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.admin-actions a {
+    text-decoration: none;
+}
+
+.admin-actions button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+/* Professional Form Styling */
+
+.admin-section form {
+    max-width: 700px;
+    margin: auto;
+}
+
+.admin-section label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.admin-section input,
+.admin-section textarea,
+.admin-section select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.admin-section textarea {
+    resize: vertical;
+}
+
+.admin-section input:focus,
+.admin-section textarea:focus,
+.admin-section select:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+/* Fix Admin Search Bar */
+
+.admin-section .search-form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 100%;
+    margin: 20px 0 30px;
+}
+
+.admin-section .search-form input {
+    flex: 1;
+    width: auto;
+    min-width: 350px;
+    padding: 12px 15px;
+}
+
+.admin-section .search-form select {
+    width: 220px;
+    flex: none;
+    padding: 12px 15px;
+}
+
+.admin-section .search-form button {
+    width: 110px;
+    flex: none;
+    padding: 12px 20px;
+}
+/* Job Details */
+
+.job-details-card {
+    max-width: 800px;
+}
+
+.job-details-card h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.job-details-card h3 {
+    margin-top: 25px;
+    margin-bottom: 8px;
+}
+
+.job-details-card p {
+    line-height: 1.7;
+}
+
+.job-details-card hr {
+    margin: 25px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+/* Application Cards */
+
+.application-card {
+    max-width: 800px;
+}
+
+.application-card h2 {
+    margin-top: 0;
+    font-size: 22px;
+}
+
+.application-card p {
+    line-height: 1.6;
+}
+/* Student Profile */
+
+.profile-card {
+    max-width: 700px;
+}
+
+.profile-card h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.profile-card p {
+    font-size: 17px;
+    margin: 18px 0;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.profile-actions button {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+/* Login and Registration */
+
+.auth-card {
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 35px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+
+.auth-card h2 {
+    margin-top: 0;
+    font-size: 28px;
+}
+
+.auth-card form {
+    text-align: left;
+    margin-top: 25px;
+}
+
+.auth-card label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.auth-card input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+.auth-card input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.auth-card button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.auth-link {
+    margin-top: 25px;
+}
+
+.auth-link a {
+    font-weight: bold;
+    text-decoration: none;
+}
+/* Main Jobs Page Heading */
+
+.page-heading {
+    text-align: center;
+    margin: 35px 0 20px;
+}
+
+.page-heading h2 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.page-heading p {
+    margin: 0;
+    font-size: 16px;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job & Placement Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            Job & Placement Portal
+        </div>
+
+        <div class="nav-links">
+            <span>Welcome, {{ student }}</span>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('profile') }}">My Profile</a>
+            <a href="{{ url_for('admin_login') }}">Admin</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Job & Placement Management Portal</h1>
+        <p>Find internships and job opportunities</p>
+    </header>
+
+    <main>
+        <h2>Available Opportunities</h2>
+        <p>Explore internships and job opportunities that match your skills.</p>
+        <form method="GET" action="/" class="search-form">
+        <input
+            type="text"
+            name="search"
+            placeholder="Search jobs, companies or locations..."
+        >
+        <button type="submit">Search</button>
+        </form>
+
+        <div class="jobs">
+            {% for job in jobs %}
+            <div class="job-card">
+
+                <h3>{{ job.title }}</h3>
+
+                <p><strong>Company:</strong> {{ job.company }}</p>
+
+                <p><strong>Location:</strong> {{ job.location }}</p>
+
+                <p><strong>Description:</strong> {{ job.description }}</p>
+
+                <p>
+                    <strong>Required Skills:</strong>
+                    <span>{{ job.skills }}</span>
+                </p>
+
+                <p>
+                    <strong>Eligibility:</strong>
+                    <span>{{ job.eligibility }}</span>
+                </p>
+
+                <a href="/job/{{ job.id }}">
+                    <button>view Details</button>
+                </a>
+
+            </div>
+            {% endfor %}
+        </div>
+
+        <a href="/applications">
+            <button class="view-btn">View My Applications</button>
+        </a>
+
+    </main>
+
+</body>
+</html>

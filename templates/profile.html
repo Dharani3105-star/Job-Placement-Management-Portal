@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Profile</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>My Profile</h1>
+    <p>View your placement profile and application summary</p>
+</header>
+
+<main>
+
+    <!-- Profile Information -->
+
+    <div class="admin-section profile-card">
+
+        <h2>Student Information</h2>
+
+        <p>
+            <strong>Name:</strong>
+            {{ student }}
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            {{ email }}
+        </p>
+
+    </div>
+
+
+    <!-- Application Summary -->
+
+    <div class="stats-container">
+
+        <div class="stat-card">
+            <h2>{{ total_applications }}</h2>
+            <p>Total Applications</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>{{ shortlisted }}</h2>
+            <p>Shortlisted</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>{{ rejected }}</h2>
+            <p>Rejected</p>
+        </div>
+
+    </div>
+
+
+    <!-- Navigation -->
+
+    <div class="profile-actions">
+
+        <a href="/dashboard">
+            <button>Dashboard</button>
+        </a>
+
+        <a href="/">
+            <button>Browse Jobs</button>
+        </a>
+
+        <a href="/applications">
+            <button>My Applications</button>
+        </a>
+
+        <a href="/logout">
+            <button>Logout</button>
+        </a>
+
+    </div>
+
+</main>
+
+</body>
+</html>

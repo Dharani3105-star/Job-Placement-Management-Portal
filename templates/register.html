@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Account</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>Job & Placement Portal</h1>
+    <p>Create Student Account</p>
+</header>
+
+<main>
+
+    <div class="auth-card">
+
+        <h2>Create Account</h2>
+
+        <p>Register to apply for jobs and internships</p>
+
+        <form method="POST">
+
+            <label>Full Name</label>
+            <input type="text"
+                   name="name"
+                   placeholder="Enter your full name"
+                   required>
+
+            <label>Email</label>
+            <input type="email"
+                   name="email"
+                   placeholder="Enter your email"
+                   required>
+
+            <label>Password</label>
+            <input type="password"
+                   name="password"
+                   placeholder="Create a password"
+                   required>
+
+            <button type="submit">
+                Create Account
+            </button>
+
+        </form>
+
+        <p class="auth-link">
+            Already have an account?
+            <a href="/login">Login</a>
+        </p>
+
+    </div>
+
+</main>
+
+</body>
+</html>
